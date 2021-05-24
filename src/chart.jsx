@@ -18,11 +18,11 @@ const Graph = ({ data, id, callback }) => (
           title: "Value",
         },
         legend: { position: "none" },
-        animation: {
-          startup: true,
-          duration: 500,
-          easing: "out",
-        },
+        // animation: {
+        //   startup: true,
+        //   duration: 0,
+        //   easing: "out",
+        // },
       }}
       rootProps={{ "data-testid": "1" }}
     />

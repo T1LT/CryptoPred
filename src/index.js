@@ -10,13 +10,13 @@ import maindata from "./maindata.json";
 class Main extends React.Component {
   constructor() {
     super();
-    this.state = { showingCard: false };
+    this.state = { showingCard: false, cardTitle: "" };
     this.setID = this.setID.bind(this);
     this.close = this.close.bind(this);
   }
 
   setID(id) {
-    this.setState({ showingCard: id });
+    this.setState({ showingCard: true, cardTitle: id });
   }
 
   close() {
@@ -39,17 +39,16 @@ class Main extends React.Component {
             />
           ))}
         </div>
-        {this.state.showingCard && (
-          <Modal
-            isOpen={Boolean(this.state.showingCard)}
-            onRequestClose={() => this.setState({ showingCard: false })}
-            className="Modal"
-            overlayClassName="Overlay"
-            ariaHideApp={false}
-          >
-            <Card id={this.state.showingCard} close={this.close} />
-          </Modal>
-        )}
+        <Modal
+          isOpen={!!this.state.showingCard}
+          onRequestClose={() => this.setState({ showingCard: false })}
+          className="Modal"
+          overlayClassName="Overlay"
+          ariaHideApp={false}
+          closeTimeoutMS={100}
+        >
+          <Card id={this.state.cardTitle} close={this.close} />
+        </Modal>
         <div id="footer">
           <h3>Click a graph to get the prediction and other details</h3>
         </div>
