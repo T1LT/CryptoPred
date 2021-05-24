@@ -1,5 +1,5 @@
 import React from "react";
-import Chart from "react-google-charts";
+import { Line } from "react-chartjs-2";
 
 export const Card = ({ id, close }) => (
   <div id="temp">
@@ -14,45 +14,29 @@ export const Card = ({ id, close }) => (
         <h2>7-Day Forecast: 2315.29$</h2>
       </div>
     </div>
-    <Chart
+    <Line
       id="cardChart"
       width={"750px"}
       height={"500px"}
-      chartType="LineChart"
-      loader={<div>Loading Chart</div>}
-      data={[
-        ["x", "value"],
-        [0, 0],
-        [1, 7],
-        [2, 15],
-        [3, 30],
-        [4, 25],
-        [5, 16],
-        [6, 24],
-        [7, 13],
-        [8, 15],
-        [9, 17],
-        [10, 13],
-        [11, 3],
-      ]}
-      options={{
-        backgroundColor: { fill: "transparent" },
-        hAxis: {
-          title: "Date",
-        },
-        vAxis: {
-          title: "Value",
-        },
-        legend: { position: "none" },
-        animation: {
-          startup: true,
-          duration: 1000,
-          easing: "out",
-        },
+      data={{
+        labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        datasets: [
+          {
+            data: [0, 7, 15, 30, 25, 16, 24, 13, 15, 17, 13, 3],
+            fill: true,
+            borderColor: "rgb(17, 149, 242)",
+            borderWidth: 2,
+            pointBackgroundColor: "rgb(17, 149, 242)",
+          },
+        ],
       }}
-      rootProps={{ "data-testid": "1" }}
+      options={{
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        responsive: false,
+        layout: { padding: 30 },
+      }}
     />
-
     <button onClick={close} id="closeButton">
       &times;
     </button>
