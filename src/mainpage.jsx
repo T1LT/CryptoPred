@@ -7,8 +7,8 @@ import Card from "./card.jsx";
 import maindata from "./maindata.json";
 
 const Mainpage = ({ callback, showingCard, cardTitle, close }) => (
-  <div id="main">
-    <div id="header">
+  <div id="main" className="m-scene">
+    <div id="header" className="m-header scene_element scene_element--fadeinup">
       <h1>Cryptocurrency Price Predictor</h1>
     </div>
     <div id="graphs">
@@ -22,7 +22,7 @@ const Mainpage = ({ callback, showingCard, cardTitle, close }) => (
       className="Modal"
       overlayClassName="Overlay"
       ariaHideApp={false}
-      closeTimeoutMS={100}
+      closeTimeoutMS={200}
     >
       <Card id={cardTitle} close={close} />
     </Modal>
