@@ -19,7 +19,20 @@ export const Card = ({ id, close }) => (
       width={"750px"}
       height={"500px"}
       data={{
-        labels: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11],
+        labels: [
+          "Fri",
+          "Sat",
+          "Sun",
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thu",
+          "Fri",
+          "Sat",
+          "Sun",
+          "Mon",
+          "Tue",
+        ],
         datasets: [
           {
             data: [0, 7, 15, 30, 25, 16, 24, 13, 15, 17, 13, 3],

@@ -1,17 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Modal from "react-modal";
 import "./reset.css";
 import "./app.css";
-import Graph from "./chart.jsx";
-import Card from "./card.jsx";
-import maindata from "./maindata.json";
+import Mainpage from "./mainpage.jsx";
 
 class Main extends React.Component {
   constructor() {
     super();
-    this.state = { showingCard: false, cardTitle: "" };
+    this.state = { showingCard: false, cardTitle: "", showingLanding: true };
     this.setID = this.setID.bind(this);
+    this.setLanding = this.setLanding.bind(this);
     this.close = this.close.bind(this);
   }
 
@@ -19,41 +17,34 @@ class Main extends React.Component {
     this.setState({ showingCard: true, cardTitle: id });
   }
 
+  setLanding() {
+    this.setState({ showingLanding: false });
+  }
+
   close() {
     this.setState({ showingCard: false });
   }
 
   render() {
-    return (
-      <div id="main">
-        <div id="header">
-          <h1>Cryptocurrency Price Predictor</h1>
+    if (!this.state.showingLanding) {
+      return (
+        <Mainpage
+          callback={this.setID}
+          showingCard={this.state.showingCard}
+          cardTitle={this.state.cardTitle}
+          close={this.close}
+        />
+      );
+    } else {
+      return (
+        <div id="landing" onClick={this.setLanding}>
+          <div id="header">
+            <h1>Cryptocurrency Price Predictor</h1>
+          </div>
+          <h2>Click to proceed</h2>
         </div>
-        <div id="graphs">
-          {Object.keys(maindata).map((key) => (
-            <Graph
-              key={key}
-              data={maindata[key]}
-              id={key}
-              callback={this.setID}
-            />
-          ))}
-        </div>
-        <Modal
-          isOpen={!!this.state.showingCard}
-          onRequestClose={() => this.setState({ showingCard: false })}
-          className="Modal"
-          overlayClassName="Overlay"
-          ariaHideApp={false}
-          closeTimeoutMS={100}
-        >
-          <Card id={this.state.cardTitle} close={this.close} />
-        </Modal>
-        <div id="footer">
-          <h3>Click a graph to get the prediction and other details</h3>
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
