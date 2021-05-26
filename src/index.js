@@ -26,7 +26,12 @@ class Main extends React.Component {
         >
           <h1>Cryptocurrency Price Predictor</h1>
         </div>
-        <h2>Click to proceed</h2>
+        <div
+          id="proceedText"
+          className="m-text scene_element scene_element--fadeinup"
+        >
+          <h2>Click to proceed</h2>
+        </div>
       </div>
     );
   }

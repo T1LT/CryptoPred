@@ -1,16 +1,15 @@
-import React, { useEffect, useCallback } from "react";
-import { Line } from "react-chartjs-2";
+import React, { useCallback } from "react";
+import { Line, defaults } from "react-chartjs-2";
 
 const Graph = ({ data, id, callback }) => {
-  useEffect(() => {
-    console.log("hi");
-  }, [callback]);
   const handleClick = useCallback(() => callback(id), []);
   return (
-    <div onClick={handleClick}>
+    <div id="graphDiv" onClick={handleClick}>
+      <div id="title">{id}</div>
       <Line
         width={"500px"}
         height={"250px"}
+        id="lineGraph"
         data={{
           labels: [
             "Fri",

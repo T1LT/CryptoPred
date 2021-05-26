@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import Modal from "react-modal";
 import "./reset.css";
 import "./app.css";
-import Graph from "./chart.jsx";
+import Graph from "./graph.jsx";
 import Card from "./card.jsx";
 import maindata from "./maindata.json";
 

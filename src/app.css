@@ -1,9 +1,24 @@
+/*centering graphs*/
 #graphs {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+/*changing cursors*/
+#graphs:hover {
+  cursor: pointer;
+}
+
+#landing:hover {
+  cursor: pointer;
+}
+
+#cardChart:hover {
+  cursor: pointer;
+}
+
+/* landing and main page stuff */
 #header {
   display: flex;
   margin: 20px;
@@ -35,6 +50,7 @@ h3 {
   margin: auto;
 }
 
+/* CARD - modal and related stuff */
 .Modal {
   display: flex;
   position: absolute;
@@ -137,4 +153,22 @@ h3 {
 
 .m-scene .scene_element--fadeinup {
   animation-name: fadeInUp;
+}
+
+#lineGraph {
+  display: inline;
+}
+
+#title {
+  font-size: 47px;
+  font-weight: bold;
+  opacity: 0.2;
+  z-index: -1;
+  position: absolute;
+}
+
+#graphDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
