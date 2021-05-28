@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+#closeButton:hover {
+  cursor: pointer;
+}
+
 /* landing and main page stuff */
 #header {
   display: flex;
@@ -40,7 +44,8 @@
   font-size: x-large;
 }
 
-#footer {
+#bottomText {
+  margin-top: 0.6%;
   display: flex;
   font-size: x-large;
 }
@@ -48,6 +53,29 @@
 h1,
 h3 {
   margin: auto;
+}
+
+#footer {
+  margin-top: 2%;
+  padding: 50px;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  background-color: rgb(45, 45, 51);
+  color: whitesmoke;
+}
+
+a {
+  color: whitesmoke;
+}
+
+p {
+  line-height: 1.6;
+}
+
+#aboutSai h1 {
+  font-size: large;
+  font-weight: bold;
 }
 
 /* CARD - modal and related stuff */
@@ -96,6 +124,7 @@ h3 {
   background-color: rgba(105, 105, 105, 0.6);
 }
 
+/* card graph css */
 #temp {
   display: flex;
 }
@@ -106,6 +135,7 @@ h3 {
   margin: 0;
 }
 
+/* animation */
 .ReactModal__Overlay {
   opacity: 0;
   transition: opacity 200ms ease-in;
@@ -155,6 +185,7 @@ h3 {
   animation-name: fadeInUp;
 }
 
+/* chartjs css */
 #lineGraph {
   display: inline;
 }

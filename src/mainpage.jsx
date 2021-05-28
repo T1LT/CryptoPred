@@ -5,6 +5,7 @@ import "./app.css";
 import Graph from "./graph.jsx";
 import Card from "./card.jsx";
 import maindata from "./maindata.json";
+import Footer from "./footer.jsx";
 
 const Mainpage = () => {
   const [showingCard, setShowingCard] = useState(false);
@@ -20,30 +21,33 @@ const Mainpage = () => {
   };
   return (
     <div id="main" className="m-scene">
-      <div
-        id="header"
-        className="m-header scene_element scene_element--fadeinup"
-      >
-        <h1>Cryptocurrency Price Predictor</h1>
+      <div id="subMain">
+        <div
+          id="header"
+          className="m-header scene_element scene_element--fadeinup"
+        >
+          <h1>Cryptocurrency Price Predictor</h1>
+        </div>
+        <div id="graphs">
+          {Object.keys(maindata).map((key) => (
+            <Graph key={key} data={maindata[key]} id={key} callback={setID} />
+          ))}
+        </div>
+        <Modal
+          isOpen={!!showingCard}
+          onRequestClose={close}
+          className="Modal"
+          overlayClassName="Overlay"
+          ariaHideApp={false}
+          closeTimeoutMS={200}
+        >
+          <Card id={cardTitle} close={close} />
+        </Modal>
+        <div id="bottomText">
+          <h3>Click a graph to get the prediction and other details</h3>
+        </div>
       </div>
-      <div id="graphs">
-        {Object.keys(maindata).map((key) => (
-          <Graph key={key} data={maindata[key]} id={key} callback={setID} />
-        ))}
-      </div>
-      <Modal
-        isOpen={!!showingCard}
-        onRequestClose={close}
-        className="Modal"
-        overlayClassName="Overlay"
-        ariaHideApp={false}
-        closeTimeoutMS={200}
-      >
-        <Card id={cardTitle} close={close} />
-      </Modal>
-      <div id="footer">
-        <h3>Click a graph to get the prediction and other details</h3>
-      </div>
+      <Footer />
     </div>
   );
 };
