@@ -7,8 +7,8 @@ const Graph = ({ data, id, callback }) => {
     <div id="graphDiv" onClick={handleClick}>
       <div id="title">{id}</div>
       <Line
-        width={"500px"}
-        height={"250px"}
+        width="500px"
+        height="250px"
         id="lineGraph"
         data={{
           labels: [
