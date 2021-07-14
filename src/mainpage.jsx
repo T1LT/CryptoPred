@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Modal from "react-modal";
 import "./reset.css";
 import "./app.css";
@@ -10,12 +10,35 @@ import Footer from "./footer.jsx";
 const Mainpage = () => {
   const [showingCard, setShowingCard] = useState(false);
   const [cardTitle, setCardTitle] = useState("");
+  const [apidata, setApiData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const coinkeys = ["BTC", "ETH", "LTC", "DOGE", "XLM", "USDT", "XRP"];
+  const coinnames = [
+    "Bitcoin",
+    "Ethereum",
+    "Litecoin",
+    "Dogecoin",
+    "Stellar",
+    "Tether",
+    "XRP",
+  ];
+  let tempdata = {};
+  useEffect(() => {
+    setLoading(true);
+    for (let i = 0; i < 7; i++) {
+      const url = `https://min-api.cryptocompare.com/data/histohour?fsym=${coinkeys[i]}&tsym=USD&limit=23`;
+      fetch(url)
+        .then((response) => response.json())
+        .then((json) => (tempdata[coinnames[i]] = json));
+    }
+    setApiData(tempdata);
+  }, []);
   const setID = useCallback((id) => {
     setShowingCard(true);
     setCardTitle(id);
   }, []);
-  // ^ this array takes values for comparing with previous versions
-  // to decide whether or not to update the function passed as the first argument
+  // ^ - the dependency array - this array takes values for comparing with previous
+  // versions to decide whether or not to update the function passed as the first argument
   const close = () => {
     setShowingCard(false);
   };

@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { Line, defaults } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 
 const Graph = ({ data, id, callback }) => {
   const handleClick = useCallback(() => callback(id), []);

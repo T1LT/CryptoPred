@@ -10,7 +10,11 @@ const Footer = () => {
         <p>III CSE - A</p>
         <p>
           Email ID:&nbsp;
-          <a href="mailto:bhaveshkankani769@gmail.com" target="_blank">
+          <a
+            href="mailto:bhaveshkankani769@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             bhaveshkankani769@gmail.com
           </a>
         </p>
@@ -22,7 +26,11 @@ const Footer = () => {
         <p>III CSE - A</p>
         <p>
           Email ID:&nbsp;
-          <a href="mailto:nishant.racherla@gmail.com" target="_blank">
+          <a
+            href="mailto:nishant.racherla@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             nishant.racherla@gmail.com
           </a>
         </p>
@@ -34,14 +42,22 @@ const Footer = () => {
         <p>III CSE - A</p>
         <p>
           Email ID:&nbsp;
-          <a href="mailto:saikumarpandhula@gmail.com" target="_blank">
+          <a
+            href="mailto:saikumarpandhula@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             saikumarpandhula@gmail.com
           </a>
         </p>
       </div>
       <div id="footerTemp">
         <p>
-          <a href="https://github.com/T1LT/CryptoPred" target="_blank">
+          <a
+            href="https://github.com/T1LT/CryptoPred"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Github Repository
           </a>
         </p>
