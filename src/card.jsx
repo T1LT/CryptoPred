@@ -1,10 +1,14 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 
-export const Card = ({ id, close }) => (
+export const Card = ({ id, close, links }) => (
   <div id="temp">
     <div id="cardStuff">
-      <h1>{id}</h1>
+      <h1>
+        <a href={links[id]} target="_blank" rel="noopener noreferrer">
+          {id}
+        </a>
+      </h1>
       <br />
       <br />
       <br />

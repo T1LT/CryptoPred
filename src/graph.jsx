@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { Line } from "react-chartjs-2";
 
-const Graph = ({ data, id, callback }) => {
+const Graph = ({ data, id, callback, time }) => {
   const handleClick = useCallback(() => callback(id), []);
   return (
     <div id="graphDiv" onClick={handleClick}>
@@ -11,20 +11,7 @@ const Graph = ({ data, id, callback }) => {
         height="250px"
         id="lineGraph"
         data={{
-          labels: [
-            "Fri",
-            "Sat",
-            "Sun",
-            "Mon",
-            "Tue",
-            "Wed",
-            "Thu",
-            "Fri",
-            "Sat",
-            "Sun",
-            "Mon",
-            "Tue",
-          ],
+          labels: time,
           datasets: [
             {
               data: data,
@@ -42,6 +29,11 @@ const Graph = ({ data, id, callback }) => {
           },
           plugins: { legend: { display: false } },
           layout: { padding: 20 },
+          elements: {
+            point: {
+              radius: 0,
+            },
+          },
         }}
       />
     </div>
