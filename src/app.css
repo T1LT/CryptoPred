@@ -25,8 +25,8 @@
 /* landing and main page stuff */
 #header {
   display: flex;
-  margin: 20px;
-  font-size: 85px;
+  margin: 15px;
+  font-size: 75px;
 }
 
 #loadingp {
@@ -35,6 +35,17 @@
   align-items: center;
   justify-content: center;
   padding: 19%;
+}
+
+#currencyMenu {
+  margin: 0.5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+select {
+  margin: 0.5%;
 }
 
 #landing {
@@ -64,7 +75,7 @@ h3 {
 }
 
 #footer {
-  margin-top: 2%;
+  margin-top: 0.75%;
   padding: 50px;
   display: flex;
   flex-direction: row-reverse;

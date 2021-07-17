@@ -1,5 +1,6 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
+// use useeffect for individual calls to the endpoint
 
 export const Card = ({ id, close, links }) => (
   <div id="temp">

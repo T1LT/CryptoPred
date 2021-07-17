@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import Modal from "react-modal";
 import "./reset.css";
 import "./app.css";
@@ -13,9 +13,10 @@ const Mainpage = () => {
   const [apidata, setApiData] = useState({});
   const [apitime, setApiTime] = useState({});
   const [loading, setLoading] = useState(false);
+  const [currency, setCurrency] = useState("USD");
 
-  const getUrl = (sym) =>
-    `https://min-api.cryptocompare.com/data/histoday?fsym=${sym}&tsym=USD&limit=950`;
+  const getUrl = (symbol) =>
+    `https://min-api.cryptocompare.com/data/histoday?fsym=${symbol}&tsym=${currency}&limit=950`;
   useEffect(() => {
     const promiseArray = [];
     setLoading(true);
@@ -35,7 +36,7 @@ const Mainpage = () => {
       promiseArray.push(promise);
     });
     Promise.all(promiseArray).then(() => setLoading(false));
-  }, []);
+  }, [currency]);
   const setID = useCallback((id) => {
     setShowingCard(true);
     setCardTitle(id);
@@ -44,6 +45,11 @@ const Mainpage = () => {
   // versions to decide whether or not to update the function passed as the first argument
 
   const close = () => setShowingCard(false);
+  const selectRef = useRef(null);
+  const updateCurrency = () => {
+    // setCurrency(document.getElementById("currencies").value);
+    setCurrency(selectRef.current.value);
+  };
 
   return (
     <div id="main" className="m-scene">
@@ -84,6 +90,20 @@ const Mainpage = () => {
             </div>
           </>
         )}
+      </div>
+      <div id="currencyMenu">
+        <label>Select a currency:</label>
+        <select id="currencies" name="currencies" ref={selectRef}>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="INR">INR</option>
+          <option value="RUB">RUB</option>
+          <option value="CAD">CAD</option>
+          <option value="GBP">GBP</option>
+          <option value="AUD">AUD</option>
+          <option value="CNY">CNY</option>
+        </select>
+        <input type="button" value="Submit" onClick={updateCurrency} />
       </div>
       <Footer />
     </div>
