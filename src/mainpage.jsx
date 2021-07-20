@@ -48,7 +48,6 @@ const Mainpage = () => {
   const close = () => setShowingCard(false);
   const selectRef = useRef(null);
   const updateCurrency = () => {
-    // setCurrency(document.getElementById("currencies").value);
     setCurrency(selectRef.current.value);
   };
 
