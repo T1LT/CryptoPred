@@ -29,12 +29,10 @@
   font-size: 75px;
 }
 
-#loadingp {
-  font-size: xx-large;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 19%;
+#loader {
+  height: 10%;
+  width: 10%;
+  padding: 17.5%;
 }
 
 #currencyMenu {

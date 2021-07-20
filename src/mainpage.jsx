@@ -5,6 +5,7 @@ import "./app.css";
 import Graph from "./graph.jsx";
 import Card from "./card.jsx";
 import Footer from "./footer.jsx";
+import Loader from "./loader.jsx";
 import { coinkeys, coinnames, wikilinks, parseData, parseTime } from "./utils";
 
 const Mainpage = () => {
@@ -61,7 +62,9 @@ const Mainpage = () => {
           <h1>Cryptocurrency Price Predictor</h1>
         </div>
         {loading ? (
-          <p id="loadingp">loading...</p>
+          <div id="loader">
+            <Loader />
+          </div>
         ) : (
           <>
             <div id="graphs">
