@@ -1,7 +1,7 @@
 # Cryptocurrency Price Predictor
 
 This is a simple dashboard-style website integrated with a machine learning model which displays information on 7 different types of cryptocurrencies, and also predicts the future prices of these cryptocurrencies.\
-The cryptocurrencies displayed in this website are\
+The cryptocurrencies displayed in this website are
 
 ### [Bitcoin](https://en.wikipedia.org/wiki/Bitcoin)
 
