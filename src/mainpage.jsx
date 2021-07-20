@@ -5,7 +5,7 @@ import "./app.css";
 import Graph from "./graph.jsx";
 import Card from "./card.jsx";
 import Footer from "./footer.jsx";
-import Loader from "./loader.jsx";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import { coinkeys, coinnames, wikilinks, parseData, parseTime } from "./utils";
 
 const Mainpage = () => {
@@ -62,7 +62,7 @@ const Mainpage = () => {
         </div>
         {loading ? (
           <div id="loader">
-            <Loader />
+            <CircularProgress />
           </div>
         ) : (
           <>
