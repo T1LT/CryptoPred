@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
-import axios from "axios";
 // use useeffect for individual calls to the endpoint
 
-export const Card = ({ id, close, links }) => {
+export const Card = ({
+  id,
+  close,
+  links,
+  currency,
+  currencysymbols,
+  coinsymbol,
+}) => {
+  const [todayPrice, setTodayPrice] = useState("");
   // const [preddata, setPreddata] = useState(null);
-  // useEffect((id) => {
-  //   axios
-  //     .get(`http://localhost:8000/api/predictions/${id}`)
-  //     .then((response) => setPreddata(response.data));
-  // }, []);
+  useEffect(() => {
+    fetch(
+      `https://min-api.cryptocompare.com/data/price?fsym=${coinsymbol}&tsyms=${currency}`
+    )
+      .then((res) => res.json())
+      .then((res) => setTodayPrice(res[currency]));
+  }, []);
   return (
     <div id="temp">
       <div id="cardStuff">
@@ -22,9 +31,18 @@ export const Card = ({ id, close, links }) => {
         <br />
         <br />
         <div id="cardText">
-          <h2>Current Price: 2142.45$</h2>
-          <h2>1-Day Forecast: 2155.12$</h2>
-          <h2>7-Day Forecast: 2315.29$</h2>
+          <h2>
+            Current Price: {currencysymbols[currency]}
+            {todayPrice}
+          </h2>
+          <h2>
+            1-Day Forecast: {currencysymbols[currency]}
+            {todayPrice}
+          </h2>
+          <h2>
+            7-Day Forecast: {currencysymbols[currency]}
+            {todayPrice}
+          </h2>
         </div>
       </div>
       <Line

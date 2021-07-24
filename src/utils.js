@@ -8,6 +8,22 @@ export const coinnames = [
   "Tether",
   "Ripple",
 ];
+export const coinrelations = {
+  Bitcoin: "BTC",
+  Ethereum: "ETH",
+  Litecoin: "LTC",
+  Dogecoin: "DOGE",
+  Stellar: "XLM",
+  Tether: "USDT",
+  Ripple: "XRP",
+};
+export const currencysymbols = {
+  USD: "$",
+  EUR: "€",
+  INR: "₹",
+  AUD: "A$",
+  CNY: "¥",
+};
 export const wikilinks = {
   Bitcoin: "https://en.wikipedia.org/wiki/Bitcoin",
   Ethereum: "https://en.wikipedia.org/wiki/Ethereum",

@@ -6,7 +6,15 @@ import Graph from "./graph.jsx";
 import Card from "./card.jsx";
 import Footer from "./footer.jsx";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import { coinkeys, coinnames, wikilinks, parseData, parseTime } from "./utils";
+import {
+  coinkeys,
+  coinnames,
+  wikilinks,
+  parseData,
+  parseTime,
+  currencysymbols,
+  coinrelations,
+} from "./utils";
 
 const Mainpage = () => {
   const [showingCard, setShowingCard] = useState(false);
@@ -15,6 +23,7 @@ const Mainpage = () => {
   const [apitime, setApiTime] = useState({});
   const [loading, setLoading] = useState(false);
   const [currency, setCurrency] = useState("USD");
+  const [coinsym, setCoinsym] = useState("");
 
   const getUrl = (symbol) =>
     `https://min-api.cryptocompare.com/data/histoday?fsym=${symbol}&tsym=${currency}&limit=950`;
@@ -41,10 +50,10 @@ const Mainpage = () => {
   const setID = useCallback((id) => {
     setShowingCard(true);
     setCardTitle(id);
+    setCoinsym(coinrelations[id]);
   }, []);
   // ^ - the dependency array - this array takes values for comparing with previous
   // versions to decide whether or not to update the function passed as the first argument
-
   const close = () => setShowingCard(false);
   const selectRef = useRef(null);
   const updateCurrency = () => {
@@ -85,7 +94,14 @@ const Mainpage = () => {
               ariaHideApp={false}
               closeTimeoutMS={200}
             >
-              <Card id={cardTitle} close={close} links={wikilinks} />
+              <Card
+                id={cardTitle}
+                close={close}
+                links={wikilinks}
+                currency={currency}
+                currencysymbols={currencysymbols}
+                coinsymbol={coinsym}
+              />
             </Modal>
             <div id="bottomText">
               <h3>Click a graph to get the prediction and other details</h3>
@@ -99,9 +115,6 @@ const Mainpage = () => {
           <option value="USD">USD</option>
           <option value="EUR">EUR</option>
           <option value="INR">INR</option>
-          <option value="RUB">RUB</option>
-          <option value="CAD">CAD</option>
-          <option value="GBP">GBP</option>
           <option value="AUD">AUD</option>
           <option value="CNY">CNY</option>
         </select>
