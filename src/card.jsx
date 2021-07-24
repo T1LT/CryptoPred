@@ -2,22 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Line } from "react-chartjs-2";
 // use useeffect for individual calls to the endpoint
 
-export const Card = ({
-  id,
-  close,
-  links,
-  currency,
-  currencysymbols,
-  coinsymbol,
-}) => {
+export const Card = ({ id, close, links, coinsymbol }) => {
   const [todayPrice, setTodayPrice] = useState("");
   // const [preddata, setPreddata] = useState(null);
   useEffect(() => {
     fetch(
-      `https://min-api.cryptocompare.com/data/price?fsym=${coinsymbol}&tsyms=${currency}`
+      `https://min-api.cryptocompare.com/data/price?fsym=${coinsymbol}&tsyms=USD`
     )
       .then((res) => res.json())
-      .then((res) => setTodayPrice(res[currency]));
+      .then((res) => setTodayPrice(res["USD"]));
   }, []);
   return (
     <div id="temp">
@@ -31,18 +24,9 @@ export const Card = ({
         <br />
         <br />
         <div id="cardText">
-          <h2>
-            Current Price: {currencysymbols[currency]}
-            {todayPrice}
-          </h2>
-          <h2>
-            1-Day Forecast: {currencysymbols[currency]}
-            {todayPrice}
-          </h2>
-          <h2>
-            7-Day Forecast: {currencysymbols[currency]}
-            {todayPrice}
-          </h2>
+          <h2>Current Price: ${todayPrice}</h2>
+          <h2>1-Day Forecast: ${todayPrice}</h2>
+          <h2>7-Day Forecast: ${todayPrice}</h2>
         </div>
       </div>
       <Line

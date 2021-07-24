@@ -22,11 +22,11 @@ const Mainpage = () => {
   const [apidata, setApiData] = useState({});
   const [apitime, setApiTime] = useState({});
   const [loading, setLoading] = useState(false);
-  const [currency, setCurrency] = useState("USD");
+  // const [currency, setCurrency] = useState("USD");
   const [coinsym, setCoinsym] = useState("");
 
   const getUrl = (symbol) =>
-    `https://min-api.cryptocompare.com/data/histoday?fsym=${symbol}&tsym=${currency}&limit=950`;
+    `https://min-api.cryptocompare.com/data/histoday?fsym=${symbol}&tsym=USD&limit=950`;
   useEffect(() => {
     const promiseArray = [];
     setLoading(true);
@@ -46,7 +46,7 @@ const Mainpage = () => {
       promiseArray.push(promise);
     });
     Promise.all(promiseArray).then(() => setLoading(false));
-  }, [currency]);
+  }, []);
   const setID = useCallback((id) => {
     setShowingCard(true);
     setCardTitle(id);
@@ -55,10 +55,10 @@ const Mainpage = () => {
   // ^ - the dependency array - this array takes values for comparing with previous
   // versions to decide whether or not to update the function passed as the first argument
   const close = () => setShowingCard(false);
-  const selectRef = useRef(null);
-  const updateCurrency = () => {
-    setCurrency(selectRef.current.value);
-  };
+  // const selectRef = useRef(null);
+  // const updateCurrency = () => {
+  //   setCurrency(selectRef.current.value);
+  // };
 
   return (
     <div id="main" className="m-scene">
@@ -98,8 +98,8 @@ const Mainpage = () => {
                 id={cardTitle}
                 close={close}
                 links={wikilinks}
-                currency={currency}
-                currencysymbols={currencysymbols}
+                // currency={currency}
+                // currencysymbols={currencysymbols}
                 coinsymbol={coinsym}
               />
             </Modal>
@@ -109,7 +109,7 @@ const Mainpage = () => {
           </>
         )}
       </div>
-      <div id="currencyMenu">
+      {/* <div id="currencyMenu">
         <label>Select a currency:</label>
         <select id="currencies" name="currencies" ref={selectRef}>
           <option value="USD">USD</option>
@@ -119,7 +119,7 @@ const Mainpage = () => {
           <option value="CNY">CNY</option>
         </select>
         <input type="button" value="Submit" onClick={updateCurrency} />
-      </div>
+      </div> */}
       <Footer />
     </div>
   );

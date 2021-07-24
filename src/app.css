@@ -26,7 +26,7 @@
 #header {
   display: flex;
   margin: 15px;
-  font-size: 75px;
+  font-size: 80px;
 }
 
 #loader {
@@ -37,7 +37,7 @@
   width: 100%;
 }
 
-#currencyMenu {
+/* #currencyMenu {
   margin: 0.5%;
   display: flex;
   justify-content: center;
@@ -46,7 +46,7 @@
 
 select {
   margin: 0.5%;
-}
+} */
 
 html {
   height: 100%;
@@ -83,7 +83,8 @@ body {
 }
 
 #bottomText {
-  margin-top: 0.6%;
+  margin-top: 1.25%;
+  margin-bottom: 1.4%;
   display: flex;
   font-size: x-large;
 }
