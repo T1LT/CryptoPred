@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Modal from "react-modal";
 import "./reset.css";
 import "./app.css";
@@ -12,7 +12,7 @@ import {
   wikilinks,
   parseData,
   parseTime,
-  currencysymbols,
+  // currencysymbols,
   coinrelations,
 } from "./utils";
 

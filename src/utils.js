@@ -41,3 +41,6 @@ export const parseData = (response) =>
   response["Data"].reduce((acc, curr) => [...acc, curr.close], []);
 export const parseTime = (response) =>
   response["Data"].reduce((acc, curr) => [...acc, getTime(curr.time)], []);
+export const parsePredData = (response) =>
+  Object.keys(response).map((val) => response[val]);
+export const parsePredDays = (response) => Object.keys(response);
