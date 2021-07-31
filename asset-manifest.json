@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/CryptoPred/static/css/main.e98897e9.chunk.css",
+    "main.js": "/CryptoPred/static/js/main.837580dc.chunk.js",
+    "main.js.map": "/CryptoPred/static/js/main.837580dc.chunk.js.map",
+    "runtime-main.js": "/CryptoPred/static/js/runtime-main.1ab99e01.js",
+    "runtime-main.js.map": "/CryptoPred/static/js/runtime-main.1ab99e01.js.map",
+    "static/js/2.1d2ab611.chunk.js": "/CryptoPred/static/js/2.1d2ab611.chunk.js",
+    "static/js/2.1d2ab611.chunk.js.map": "/CryptoPred/static/js/2.1d2ab611.chunk.js.map",
+    "index.html": "/CryptoPred/index.html",
+    "static/css/main.e98897e9.chunk.css.map": "/CryptoPred/static/css/main.e98897e9.chunk.css.map",
+    "static/js/2.1d2ab611.chunk.js.LICENSE.txt": "/CryptoPred/static/js/2.1d2ab611.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1ab99e01.js",
+    "static/js/2.1d2ab611.chunk.js",
+    "static/css/main.e98897e9.chunk.css",
+    "static/js/main.837580dc.chunk.js"
+  ]
+}
