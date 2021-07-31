@@ -16,7 +16,7 @@ export const Card = ({ id, close, links, coinsymbol }) => {
       .then((res) => res.json())
       .then((res) => setTodayPrice(res["USD"]));
 
-    fetch(`https://trial-predictions.herokuapp.com/api/predictions/${id}/`)
+    fetch(`https://crypto-predictions.herokuapp.com/api/predictions/${id}/`)
       .then((res) => res.json())
       .then((res) => {
         setPreddata(parsePredData(res));
